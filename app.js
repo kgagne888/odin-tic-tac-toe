@@ -108,10 +108,3 @@ const Game = (() => {
 })();
 
 Game.start();
-
-// we check to see if there are 3 x's in a row
-// if not, then we move onto the next turn 
-// Play O goes next 
-// they choose their location to put their O 
-// we keep going 
-// Once all the spots are filled, then it is a draw if nobody has won 
