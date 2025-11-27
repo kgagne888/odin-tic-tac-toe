@@ -14,6 +14,7 @@
         }
         gameboard[index] = mark;
         console.log(gameboard);
+        render(index, mark); 
         return true;
     }
 
@@ -36,7 +37,11 @@
         // check tie 
         if (isFull()) return 'tie';
         return null;
+    }
 
+    const render = (index, value) => {
+        const cell = document.getElementById(`cell${index}`); 
+        cell.textContent = value; 
     }
     
     return {
