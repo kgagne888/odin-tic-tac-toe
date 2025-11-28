@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tic-Tac-Toe</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Tic Tac Toe</h1>
-    <div class="board">
-        <div class="cell" id="cell0"></div>
-        <div class="cell" id="cell1"></div>
-        <div class="cell" id="cell2"></div>
-        <div class="cell" id="cell3"></div>
-        <div class="cell" id="cell4"></div>
-        <div class="cell" id="cell5"></div>
-        <div class="cell" id="cell6"></div>
-        <div class="cell" id="cell7"></div>
-        <div class="cell" id="cell8"></div>
+
+<div class="container">
+    <h1>Tic-Tac-Toe</h1>
+
+    <div class="controls">
+        <input type="text" id="player1Name" placeholder="Player 1 name" />
+        <input type="text" id="player2Name" placeholder="Player 2 name" />
+        <button id="playBtn">Play Game</button>
+        <button id="restartBtn">Restart</button>
     </div>
-    <div class="row">
-        <form id="formplay">
-            <div class="inputs">
-                <label for="player1name">Player 1 Name</label>
-                <input type="text" id="player1name" name="player1name" required>
-            </div>
-            <div class="inputs">
-                <label for="player2name">Player 2 Name</label>
-                <input type="text" id="player2name" name="player2name" required>
-            </div>
-        </form>
-        <button form="formplay">Play Game</button>
-        <button form="formplay">Restart Game</button>
+
+    <div id="turnIndicator">Enter names and click Play</div>
+
+    <div id="board">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
     </div>
-    <script src="app.js"></script>
+
+    <div id="message"></div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>

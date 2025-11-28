@@ -1,97 +1,120 @@
-/* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/* 2. Remove default margin */
-* {
-  margin: 0;
-}
-
-/* 3. Enable keyword animations */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
-  }
-}
-
+/* ---------- General ---------- */
 body {
-  /* 4. Add accessible line-height */
-  line-height: 1.5;
-  /* 5. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
 }
 
-/* 6. Improve media defaults */
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
+.container {
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
 }
 
-/* 7. Inherit fonts for form controls */
-input, button, textarea, select {
-  font: inherit;
+/* ---------- Controls ---------- */
+.controls {
+    margin-bottom: 15px;
 }
 
-/* 8. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+input {
+    margin: 5px 3px;
+    padding: 8px 10px;
+    border: 2px solid #dcdcdc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
 }
 
-/* 9. Improve line wrapping */
-p {
-  text-wrap: pretty;
-}
-h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
-}
-
-/*
-  10. Create a root stacking context
-*/
-#root, #__next {
-  isolation: isolate;
-}
-
-.board {
-    width: 300px;
-    height: 300px; 
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr; 
-}
-
-.cell {
-    height: 100px; 
-    border: 1px solid black; 
-    text-align: center; 
-    font-size: 5rem;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    padding: 10px;
-}
-
-.inputs, body {
-    display: flex; 
-    flex-direction: column;
-}
-
-body {
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh;
-    gap: 15px; 
-}
-
-.row, form {
-    display: flex; 
-    flex-direction: row; 
-    gap: 15px; 
-    align-items: center; 
-    justify-content: center; 
+input:focus {
+    border-color: #a3d2ca;
+    outline: none;
 }
 
 button {
-    height: 80%; 
-    width: 200px; 
+    margin: 5px 3px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#playBtn {
+    background-color: #ffd6ba;
+    color: #5b4636;
+}
+
+#playBtn:hover {
+    background-color: #ffc1a1;
+    transform: translateY(-2px);
+}
+
+#restartBtn {
+    background-color: #bae1ff;
+    color: #1b1b2f;
+}
+
+#restartBtn:hover {
+    background-color: #99d0ff;
+    transform: translateY(-2px);
+}
+
+/* ---------- Turn & Message ---------- */
+#turnIndicator {
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+#message {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ---------- Board ---------- */
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.cell {
+    background-color: #ffe3e3;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.cell:hover {
+    background-color: #ffd1d1;
+    transform: scale(1.05);
+}
+
+/* ---------- X/O Colors ---------- */
+.cell.X {
+    color: #6c5ce7; /* pastel purple */
+}
+
+.cell.O {
+    color: #ff7675; /* pastel pink */
+}
+
+/* ---------- Win Highlight ---------- */
+.cell.win {
+    background-color: #a8e6cf; /* pastel green */
+    transform: scale(1.1);
 }
